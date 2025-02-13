@@ -1,0 +1,361 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+article {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem
+}
+
+.endScene {
+    top: 100%;
+    background: url("./img/love-background.jpg") no-repeat;
+    background-size: cover;
+    height: 100vh;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+.endScene.showen {
+    opacity: 1;
+}
+
+.start {
+    cursor: pointer;
+    transition: transform 2.5s ease, opacity 3.5s ease;
+    background: 0;
+    border: 0;
+    box-shadow: unset;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.start img {
+    width: 250px;
+    height: 250px;
+}
+
+.start.hidden {
+    transform: translate(-50%, -300%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+h1 {
+    width: fit-content;
+    display: flex;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: white;
+    font-family: "JetBrains Mono", sans-serif;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+}
+
+.image {
+    width: 30.9rem;
+    height: 25rem;
+    border-radius: 2rem;
+    background-image: url("./img/cut.gif");
+    background-position: center;
+    background-size: cover;
+}
+
+.popup {
+    padding-top: 30px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px;
+    height: 600px;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease, top 0.5s ease;
+}
+
+.popup.showen {
+    visibility: visible;
+    opacity: 1;
+    top: 50%;
+}
+
+.unshowen {
+    visibility: hidden;
+}
+
+.showen {
+    visibility: visible;
+}
+
+canvas {
+    width: 500px;
+    height: 500px;
+}
+
+.btns {
+    position: relative;
+    width: 20rem;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+button {
+    padding: 1rem 3rem;
+    color: white;
+    background-color: #A14747;
+    box-shadow: 39px 7px 8px 0px rgba(34, 60, 80, 0.2);
+    border: none;
+    border-radius: 10%;
+}
+
+a {
+    padding: 1rem 3rem;
+    background-color: #A14747;
+    color: white; 
+    text-decoration: none;
+    display: inline-block;  
+    box-shadow: 39px 7px 8px 0px rgba(34, 60, 80, 0.2);
+    border: none;
+    border-radius: 10%;
+    text-align: center; 
+    font-size: 1rem; 
+    transition: background-color 0.3s ease; 
+}
+
+a:hover {
+    background-color: #8b2e2e;
+}
+
+#yes {
+    margin-left: 13rem;
+    transition: 0.3s all ease-in-out;
+}
+
+body {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 1.0s all ease;
+}
+
+#no {
+    position: absolute;
+    left: 0;
+    transition: 0.2s all ease-in-out;
+}
+
+#yes:hover {
+    background-color: hotpink;
+}
+
+p{
+    font-family: "JetBrains Mono",sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 2rem;
+}
+
+span{
+    font-family: "Bodoni MT Black",sans-serif;
+    color:pink;
+}
+
+.lyrics {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 48px;
+    font-family: "Brush Script MT", sans-serif;
+    color: white;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Анимация появления и исчезновения текста */
+@keyframes lyricsAnimation {
+    0% { top: 100%; opacity: 0; }
+    25% { opacity: 1; }
+    50% { top: 30%; opacity: 1; }
+    75% { opacity: 1; }
+    100% { top: -100%; opacity: 0; }
+}
+
+/* Картинка девушки */
+.Zulfia-image {
+    position: absolute;
+    margin-top: 100px;
+    width: 300px;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+}
+
+/* Анимация для девушки */
+@keyframes ZulfiaAnimation1 {
+    0% { top: 100%; opacity: 0; }
+    25% { opacity: 1; }
+    50% { top: 30%; opacity: 1; }
+    75% { opacity: 1; }
+    100% { top: -100%; opacity: 0; }
+}
+
+.grow-faster, .faster {
+    position: absolute;
+    top: 50%;
+    left: -200px;
+    font-size: 96px;
+    font-family: "Brush Script MT", sans-serif;
+    color: white;
+    opacity: 0;
+    white-space: nowrap;
+}
+
+.OOOH {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 96px;
+    font-family: "Brush Script MT", sans-serif;
+    color: white;
+    opacity: 0;
+}
+/* Новые стили для текста, поднимающегося снизу вверх */
+.love-heat, .hot-seat, .tell-me, .after-all {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 48px;
+    font-family: "Brush Script MT", sans-serif;
+    color: white;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.images {
+    margin-top: 30px;
+    width: 300px;
+    height: 300px;
+}
+
+@keyframes OOOH {
+    0% { top: 100%; opacity: 0; font-size: 96px;}
+    25% { opacity: 1; }
+    50% { top: 50%; opacity: 1; font-size: 128px;}
+    75% { opacity: 1; }
+    100% { top: -100%; opacity: 0; font-size: 96px;}
+}
+
+/* Анимация текста "Grow faster" */
+@keyframes growFasterAnimation {
+    0% { left: -300px; opacity: 0; }
+    10% { opacity: 1; }
+    50% { left: 40%; opacity: 1; }
+    90% { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+}
+
+/* Анимация текста "faster" */
+@keyframes fasterAnimation {
+    0% { left: -300px; opacity: 0; }
+    10% { opacity: 1; }
+    50% { left: 40%; opacity: 1; }
+    90% { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+}
+
+.romance-text, .romance-words, .wish-text, .end-scene {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 48px;
+    font-family: "Brush Script MT", sans-serif;
+    color: white;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.romance-words {
+    position: absolute;
+    font-size: 36px;
+    flex-direction: row;
+    gap: 10px;
+    opacity: 1;
+    top: 100%;
+}
+
+.word-to, .word-go, .word-romancing {
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+
+/* Анимация движения текста вверх */
+@keyframes textRiseAnimation {
+    0% { top: 100%; opacity: 0; }
+    20% { opacity: 1; }
+    50% { top: 30%; opacity: 1; }
+    80% { opacity: 1; }
+    100% { top: -50%; opacity: 0; }
+}
+@keyframes textRiseAnimation2 {
+    0% { top: 100%; opacity: 0; }
+    40% {opacity: 0;}
+    50% { top: 70%; }
+    60% { opacity: 1; }
+    100% { top: -10%; opacity: 0;}
+}
+@keyframes textRiseAnimation3 {
+    0% { top: 100%; opacity: 0; }   
+    20% { opacity: 1; }
+    50% { top: 30%; opacity: 1; }
+    100% { top: 30%; opacity: 1;}
+}
+@keyframes textRiseAnimation5 {
+    0% { top: 30%; opacity: 1;}
+    100% { top: -50%; opacity: 0;}
+}
+@keyframes textRiseAnimation6 {
+    0% { top: 70%; }
+    100% { top: -10%; opacity: 0; }
+}
